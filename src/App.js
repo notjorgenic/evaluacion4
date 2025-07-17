@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import NavBar     from './componentes/NavBar'
+import Footer     from './componentes/Footer'
+import Inicio     from './pagina/inicio'
+import Uf         from './pagina/UF'
+import Ivp        from './pagina/Ivp'
+import Ipc        from './pagina/Ipc'
+import Utm        from './pagina/Utm'
+import Dolar      from './pagina/Dolar'
+import Euro       from './pagina/Euro'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <div className="d-flex flex-column min-vh-100">
+        <NavBar />
+
+        <main className="flex-grow-1">
+          <Routes>
+            <Route path="/"      element={<Inicio />} />
+            <Route path="/uf"    element={<Uf />} />
+            <Route path="/ivp"   element={<Ivp />} />
+            <Route path="/ipc"   element={<Ipc />} />
+            <Route path="/utm"   element={<Utm />} />
+            <Route path="/dolar" element={<Dolar />} />
+            <Route path="/euro"  element={<Euro />} />
+          </Routes>
+        </main>
+
+        <Footer />
+      </div>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
